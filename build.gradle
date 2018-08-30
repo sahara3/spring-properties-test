@@ -1,0 +1,52 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.4.RELEASE'
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    version = '0.0.1'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencyManagement {
+        dependencies {
+            dependency 'org.projectlombok:lombok:1.18.2'
+        }
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok'
+        compile 'org.springframework.boot:spring-boot-starter-web'
+        compile 'org.springframework.boot:spring-boot-starter-actuator'
+    }
+    
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    
+    bootRun {
+        def path = file("${rootDir}/external.properties").toURI().toURL().toString()
+        systemProperty 'spring.config.additional-location', path
+    }
+}
+
+project(':api') {
+    jar.enabled = true
+    bootJar.enabled = false
+    bootRun.enabled = false
+}
+
+project(':web') {
+    dependencies {
+        compile project(':api')
+    }
+}

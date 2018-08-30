@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+api.config.ApiAutoConfiguration
+
+#org.springframework.boot.env.PropertySourceLoader=\
+#api.config.UnicodePropertiesPropertySourceLoader
