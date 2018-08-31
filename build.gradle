@@ -34,7 +34,7 @@ subprojects {
     targetCompatibility = 1.8
     
     bootRun {
-        def path = file("${rootDir}/external.properties").toURI().toURL().toString()
+        def path = file("${rootDir}/external.ini").toURI().toURL().toString()
         systemProperty 'spring.config.additional-location', path
     }
 }
