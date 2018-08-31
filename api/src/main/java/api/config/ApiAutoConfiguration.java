@@ -10,10 +10,15 @@ import org.springframework.context.annotation.Bean;
  *
  */
 @EnableConfigurationProperties(ApiProperties.class)
+@SuppressWarnings("static-method")
 public class ApiAutoConfiguration {
 
+	/**
+	 *
+	 * @return UnicodeIniPropertySourceLoader bean.
+	 */
 	@Bean
-	public UnicodePropertiesPropertySourceLoader unicodePropertiesPropertySourceLoader() {
-		return new UnicodePropertiesPropertySourceLoader();
+	public UnicodeIniPropertySourceLoader unicodeIniPropertySourceLoader() {
+		return new UnicodeIniPropertySourceLoader();
 	}
 }

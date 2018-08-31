@@ -1,4 +1,2 @@
-org.springframework.boot.env.PropertySourceLoader=\
-org.springframework.boot.env.PropertiesPropertySourceLoader,\
-org.springframework.boot.env.YamlPropertySourceLoader,\
-api.config.UnicodePropertiesPropertySourceLoader
+#org.springframework.boot.env.PropertySourceLoader=\
+#api.config.UnicodeIniPropertySourceLoader
